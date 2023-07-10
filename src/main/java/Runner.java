@@ -17,7 +17,7 @@ public class Runner {
 //        1. Add "Coll" to the end of the list
         scottishIslands.add("Coll");
 //        2. Add "Tiree" to the start of the list
-        scottishIslands.add(0,"Tiree");
+        scottishIslands.add(0, "Tiree");
 //        3. Add "Islay" after "Jura" and before "Mull"
         scottishIslands.add(2, "Islay");
 //        4. Print out the index position of "Skye"
@@ -42,15 +42,66 @@ public class Runner {
         System.out.println("numbers: " + numbers);
 
 //        1. Print out a list of the even integers
+        for (int i = 0; i < numbers.size(); i++) {
+            if (numbers.get(i) % 2 == 0) {
+                System.out.println(numbers.get(i));
+            }
+        }
 //        2. Print the difference between the largest and smallest value
+
+        int largest = numbers.get(0);
+        for (int i = 0; i < numbers.toArray().length; i++) {
+            if (numbers.get(i) > largest) {
+                largest = numbers.get(i);
+            }
+        }
+
+        int smallest = numbers.get(0);
+        for (int i = 0; i < numbers.toArray().length; i++) {
+            if (numbers.get(i) < smallest) {
+                smallest = numbers.get(i);
+            }
+
+            System.out.println(largest - smallest);
+
 //        3. Print True if the list contains a 1 next to a 1 somewhere.
+            int dup = numbers.get(0);
+            for (int j = 0; j < numbers.toArray().length; j++) {
+                for (int k = 1; k <numbers.toArray().length; k++) {
+
+                    if (numbers.get(j) == numbers.get(k)){
+                        System.out.println("True");
+                    }
+                }
+            }
+
 //        4. Print the sum of the numbers,
+            int sum = 0;
+
+            for (int j = 0; j < numbers.toArray().length; j++){
+                sum += numbers.get(j);
+            }
+
+            System.out.println(sum);
 //        5. Print the sum of the numbers...
 //           ...except the number 13 is unlucky, so it does not count...
 //           ...and numbers that come immediately after a 13 also do not count.
+
+            int specialSum = 0;
+
+            for (int j = 0; j < numbers.toArray().length; j++){
+                if(numbers.get(j) == 13)
+                    specialSum = specialSum;
+                else {
+                    specialSum += numbers.get(j);
+                }
+                System.out.println(specialSum);
+                }
+            }
 //
 //          So [2, 7, 13, 2] would have sum of 9.
 
+        }
     }
 
-}
+
