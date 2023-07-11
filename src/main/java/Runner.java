@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class Runner {
 
@@ -42,9 +43,9 @@ public class Runner {
         System.out.println("numbers: " + numbers);
 
 //        1. Print out a list of the even integers
-        for (int i = 0; i < numbers.size(); i++) {
-            if (numbers.get(i) % 2 == 0) {
-                System.out.println(numbers.get(i));
+        for (Integer number : numbers) {
+            if (number % 2 == 0) {
+                System.out.println(number);
             }
         }
 //        2. Print the difference between the largest and smallest value
@@ -65,11 +66,10 @@ public class Runner {
             System.out.println(largest - smallest);
 
 //        3. Print True if the list contains a 1 next to a 1 somewhere.
-            int dup = numbers.get(0);
             for (int j = 0; j < numbers.toArray().length; j++) {
-                for (int k = 1; k <numbers.toArray().length; k++) {
+                for (int k = 1; k < numbers.toArray().length; k++) {
 
-                    if (numbers.get(j) == numbers.get(k)){
+                    if (Objects.equals(numbers.get(j), numbers.get(k))){
                         System.out.println("True");
                     }
                 }
@@ -90,8 +90,9 @@ public class Runner {
             int specialSum = 0;
 
             for (int j = 0; j < numbers.toArray().length; j++){
-                if(numbers.get(j) == 13)
-                    specialSum = specialSum;
+                if(numbers.get(j) == 13) {
+                    break;
+                }
                 else {
                     specialSum += numbers.get(j);
                 }
